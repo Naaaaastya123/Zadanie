@@ -5,4 +5,5 @@
 <img width="1882" height="716" alt="image" src="https://github.com/user-attachments/assets/b6993639-7534-41a9-a8e8-2d3d51da69e2" />
 
 Добавить сотрудника
-<img width="1887" height="769" alt="image" src="https://github.com/user-attachments/assets/d35b7d54-af66-496c-9a19-242107ee2e12" />
+<img width="1881" height="718" alt="image" src="https://github.com/user-attachments/assets/24bf72dd-ce0b-4da3-9eed-7194e55fee9f" />
+
