@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список сотрудников</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background-color: #FFD700;
+            padding: 10px;
+            color: #000;
+        }
+        .sidebar {
+            width: 200px;
+            float: left;
+            background-color: #fffacc;
+            padding: 10px;
+            height: 100vh;
+        }
+        .content {
+            margin-left: 220px;
+            padding: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .add-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        header img {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Список сотрудников</h1>
+    </div>
+    <div class="sidebar">
+        <h3><a href="{% url 'employee_list' %}">Главная</a></h3>
+        <h3><a href="{% url 'schedule' %}">Распорядок</a></h3>
+        <a href="{% url 'add_employee' %}" class="add-button">Добавить</a>
+    </div>
+    <div class="content">
+        <table>
+            <tr>
+                <th>Табельный номер</th>
+                <th>ФИО</th>
+                <th>Email</th>
+                <th>Телефон</th>
+                <th>Должность</th>
+                <th>Действия</th>
+            </tr>
+            {% for employee in employees %}
+            <tr>
+                <td>{{ employee.tab_number }}</td>
+                <td>{{ employee.full_name }}</td>
+                <td>{{ employee.email }}</td>
+                <td>{{ employee.phone }}</td>
+                <td>{{ employee.position }}</td>
+                <td>
+                    <a href="{% url 'delete_employee' employee.id %}" class="delete-button">Удалить</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

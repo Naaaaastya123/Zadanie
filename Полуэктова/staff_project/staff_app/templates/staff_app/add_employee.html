@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить сотрудника</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background-color: #FFD700;
+            padding: 10px;
+            color: #000;
+        }
+        .sidebar {
+            width: 200px;
+            float: left;
+            background-color: #FFFACD;
+            padding: 10px;
+        }
+        .content {
+            margin-left: 220px;
+            padding: 10px;
+        }
+        .form {
+            border: 1px solid #ddd;
+            padding: 20px;
+            width: 500px;
+            margin: 0 auto;
+        }
+        .form input, .form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .form button {
+            background-color: #FFD700;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Добавить сотрудника</h1>
+    </div>
+    <div class="sidebar">
+        <h3>Главная</h3>
+        <h3>Распорядок</h3>
+        <a href="{% url 'employee_list' %}" class="add-button">Список сотрудников</a>
+    </div>
+    <div class="content">
+        <div class="form">
+            <h2>НОВЫЙ СОТРУДНИК</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">СОХРАНИТЬ</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
